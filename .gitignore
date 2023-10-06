@@ -1,0 +1,27 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+public/*.js
+public/*.map
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc (.env 코드 부분 추가함 )
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env  
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
