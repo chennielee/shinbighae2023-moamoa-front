@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { HomePage, SignUpPage, GroupPage } from "./pages";
+import { HomePage, SignUpPage, GroupPage, WishListPage } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,11 @@ const router = createBrowserRouter([
   {
     path: "/group",
     element: <GroupPage />,
+  },
+
+  {
+    path: "/wish",
+    element: <WishListPage />,
   },
 ]);
 
