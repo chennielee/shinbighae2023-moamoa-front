@@ -2,11 +2,35 @@ import React, { useState } from "react";
 import { PageLayout } from "../../components";
 import InvestChange from "./InvestChange";
 import * as S from "./GroupPage.style";
+import { useNavigate } from "react-router-dom";
 
 const GroupPage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [members, setMembers] = useState(["엄마", "아빠"]);
+
+  const priceData = [
+    { name: "Stock 1", profit: "5%", holding: 10, currentPrice: "$50" },
+    { name: "Stock 2", profit: "2%", holding: 15, currentPrice: "$60" },
+  ];
+
+  const navigate = useNavigate();
+
+  const handleMakeGroupClick = () => {
+    navigate("/makegroup1");
+  };
+
+  const handleInvestHelpClick = () => {
+    navigate("/helppage");
+  };
+
+  const handleGroupPageClick = () => {
+    navigate("/group");
+  };
+
+  const handleCheckPreference = () => {
+    navigate("/wishpage");
+  };
 
   const openModal = () => {
     setIsModalVisible(true);
@@ -96,15 +120,27 @@ const GroupPage = () => {
           </S.LeftDay>
         </S.Middle>
         <S.Container>
-          <InvestChange />
+          <InvestChange priceData={priceData} />
         </S.Container>{" "}
       </div>
-      <S.Prefer> 선호 주식 확인하기</S.Prefer>
+      <S.Prefer onClick={handleCheckPreference}> 선호 주식 확인하기</S.Prefer>
       <S.Options>
         <S.SelectOption>
-          <S.InvestBtn src="/svgs/trending.svg" alt="차트" />
-          <S.GroupBtn src="/svgs/group.svg" alt="그룹 페이지" />
-          <S.UserBtn src="/svgs/user.svg" alt="개인 페이지" />
+          <S.InvestBtn
+            onClick={handleInvestHelpClick}
+            src="/svgs/trending.svg"
+            alt="차트"
+          />
+          <S.GroupBtn
+            onClick={handleMakeGroupClick}
+            src="/svgs/group.svg"
+            alt="그룹 페이지"
+          />
+          <S.UserBtn
+            onClick={handleGroupPageClick}
+            src="/svgs/user.svg"
+            alt="개인 페이지"
+          />
         </S.SelectOption>
       </S.Options>
     </PageLayout>

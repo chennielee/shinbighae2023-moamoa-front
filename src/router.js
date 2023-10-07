@@ -5,9 +5,10 @@ import {
   SignUpPage,
   GroupPage,
   MakeGroupPage1,
-  MakeGroupPage2,
   MKPage3,
   MPage4,
+  WishListPage,
+  InvestHelpPage,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -32,11 +33,6 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/makegroup2",
-    element: <MakeGroupPage2 />,
-  },
-
-  {
     path: "/makegroup3",
     element: <MKPage3 />,
   },
@@ -44,6 +40,15 @@ const router = createBrowserRouter([
   {
     path: "/makegroup4",
     element: <MPage4 />,
+  },
+
+  {
+    path: "/wishpage",
+    element: <WishListPage />,
+  },
+  {
+    path: "/helppage",
+    element: <InvestHelpPage />,
   },
 ]);
 

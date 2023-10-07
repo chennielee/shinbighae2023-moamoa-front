@@ -1,10 +1,10 @@
-import { PageLayout } from "../../components";
-import * as S from "./HomePage.style";
-import { useNavigate } from "react-router-dom";
 import React from "react";
-import GroupList from "./GroupList";
+import ChoseList from "./ChoseList";
+import * as S from "./WishListPage.style";
+import { PageLayout } from "../../components";
+import { useNavigate } from "react-router-dom";
 
-const HomePage = () => {
+const WishListPage = () => {
   const navigate = useNavigate();
 
   const handleMakeGroupClick = () => {
@@ -19,37 +19,36 @@ const HomePage = () => {
     navigate("/group");
   };
 
-  const groupData = [
+  const stockData = [
     {
       id: 1,
-      title: "우리의 노후자금을 위해",
-      isGroup: "모임",
-      profit: "-10%",
-      aim: "목표 달성률",
+      name: "숙명항공",
+      image: "/images/apple.png",
+      price: "$150.25",
+      limit: "+3.5%",
     },
     {
       id: 2,
-      title: "다른 그룹 제목",
-      isGroup: "모임",
-      profit: "+5%",
-      aim: "목표 달성률",
+      name: "숙명전자",
+      image: "/images/amazon.png",
+      price: "$3,450.00",
+      limit: "+1.2%",
     },
   ];
 
   return (
     <PageLayout>
-      <S.Head>
-        <S.Title> 이미 참여한 모임 </S.Title>
-        <S.Ask> 모임 참여하기 </S.Ask>
-      </S.Head>
+      <S.Header>
+        <S.TeamName>여행 가보자고</S.TeamName>
+        <S.TeamDetail>모임에서 현재 가장 선호되는 주식 </S.TeamDetail>
+      </S.Header>
 
       <div style={{ overflowY: "scroll", height: "calc(100vh - 100px)" }}>
         <S.Container>
-          <GroupList stockData={groupData} />
+          <ChoseList stockData={stockData} />
         </S.Container>{" "}
       </div>
 
-      <S.MakeGroup onClick={handleMakeGroupClick}>+ 모임 생성하기</S.MakeGroup>
       <S.Options>
         <S.SelectOption>
           <S.InvestBtn
@@ -72,5 +71,4 @@ const HomePage = () => {
     </PageLayout>
   );
 };
-
-export default HomePage;
+export default WishListPage;

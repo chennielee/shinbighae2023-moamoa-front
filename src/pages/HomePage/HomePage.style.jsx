@@ -1,9 +1,15 @@
 import styled from "@emotion/styled";
 
-export const Title = styled.div`
+export const Head = styled.div`
+  position: fixed;
+  width: 100%;
   margin: 32% auto 10% auto;
+  text-align: center; /* 텍스트 가운데 정렬 */
+`;
+
+export const Title = styled.div`
   font-size: xx-large;
-  position: sticky;
+  margin-bottom: 10px; /* 아래 여백 추가 */
 `;
 
 export const Ask = styled.div`
@@ -11,69 +17,7 @@ export const Ask = styled.div`
   font-weight: 600;
   color: blue;
   margin: auto;
-  position: sticky;
-`;
-
-export const Container = styled.div`
-  height: 86%;
-  padding-top: 10%;
-  align-items: center;
-  overflow: auto;
-`;
-
-export const Group = styled.div`
-  border: 1px solid black;
-  height: 26%;
-  width: 80%;
-  margin: 10px auto 10% auto;
-  border-radius: 10%;
-`;
-
-export const GroupTitle = styled.div`
-  height: 8px;
-  margin-bottom: 10%;
-  display: grid;
-  align-items: center;
-`;
-
-export const GroupTitleName = styled.div`
-  margin: auto;
-  height: 8px;
-  margin-top: 3%;
-  margin-bottom: %;
-  margin-bottom: 6%;
-  font-size: x-large;
-  font-weight: 600;
-`;
-
-export const IsGroup = styled.div`
-  margin: 3% auto;
-  font-size: large;
-`;
-
-export const GroupProfit = styled.div`
-  height: 10%;
-  display: inline-block;
-  width: 100%;
-  margin-top: 10%;
-  font-size: larger;
-`;
-
-export const ProfitIntro = styled.div`
-  float: left;
-  margin-left: 5%;
-`;
-
-export const ProfitNum = styled.div`
-  float: right;
-  margin-right: 30%;
-`;
-
-export const GroupAim = styled.div`
-  margin-top: 10%;
-  height: 8px;
-  font-size: larger;
-  margin-left: 5%;
+  cursor: pointer; /* 포인터 커서로 변경하여 클릭 가능한 스타일로 표시 */
 `;
 
 export const MakeGroup = styled.div`
@@ -87,15 +31,28 @@ export const MakeGroup = styled.div`
   text-align: center;
   height: 5%;
   margin: auto;
+  background-color: white; /* 배경색 추가 */
+  padding: 10px; /* 내부 여백 추가 */
+  border-radius: 10px; /* 둥근 테두리 추가 */
+  cursor: pointer; /* 포인터 커서로 변경하여 클릭 가능한 스타일로 표시 */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
 `;
+
 export const Options = styled.div`
-  border-top: 1px black solid;
   width: 100%;
   z-index: 2;
   background-color: white;
-  bottom: 0;
-  height: 14%;
-  position: sticky;
+  bottom: 0px;
+  height: 12%;
+  position: fixed;
+  padding-top: 3%;
+`;
+
+export const Container = styled.div`
+  width: 80%;
+  margin: 10% auto;
+  height: auto; /* 높이 자동 조절 */
+  overflow: auto;
 `;
 
 export const SelectOption = styled.div`
@@ -121,7 +78,6 @@ export const GroupBtn = styled.img`
   bottom: -20px;
   width: 30px;
 `;
-
 export const UserBtn = styled.img`
   position: relative;
   bottom: -20px;
