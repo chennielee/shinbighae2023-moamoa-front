@@ -2,13 +2,14 @@ import styled from "@emotion/styled";
 
 export const MainBox = styled.div`
   width: 80%;
-  border: 1px solid black;
   text-align: center;
   margin: 20px auto; /* 상단과 하단 여백을 조절 */
   padding: 20px; /* 내용을 더 잘 보이도록 패딩 추가 */
   border-radius: 10px;
   overflow: auto;
   margin-top: 5%;
+  height: 100%;
+  border: 1px solid black;
 `;
 
 export const Title = styled.div`

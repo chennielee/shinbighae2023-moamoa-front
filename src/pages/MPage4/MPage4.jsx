@@ -1,8 +1,15 @@
 import React from "react";
 import ItFrame from "./ItFrame";
 import * as S from "./MPage4.style";
+import { useNavigate } from "react-router-dom";
 
 function MPage4() {
+  const navigate = useNavigate();
+
+  const handleSuccessClick = () => {
+    navigate("/group");
+  };
+
   const imageUrl = "/svgs/couple.svg";
   const propDetails = (
     <S.ChoiceWhat>
@@ -18,7 +25,7 @@ function MPage4() {
         <S.MemCaption>모임인원</S.MemCaption>
         <S.MemberInput type="text"></S.MemberInput>
       </S.MainForm>
-      <S.Next>모임만들기</S.Next>
+      <S.Next onClick={handleSuccessClick}>모임만들기</S.Next>
     </S.ChoiceWhat>
   );
 

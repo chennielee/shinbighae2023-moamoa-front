@@ -8,7 +8,7 @@ function MakeGroupPage1() {
   const navigate = useNavigate();
 
   const handleNextClick = () => {
-    navigate("/makegroup2");
+    navigate("/makegroup3");
   };
   const propDetails = (
     <S.ChoiceWho>
