@@ -66,20 +66,3 @@ export const UserBtn = styled.img`
   bottom: -20px;
   width: 30px;
 `;
-export const MainContainer = styled.div`
-  width: 60%;
-`;
-
-export const Details = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-export const Price = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Heart = styled.div`
-  width: 8%;
-`;

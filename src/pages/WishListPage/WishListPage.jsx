@@ -29,14 +29,14 @@ const WishListPage = () => {
       name: "숙명항공",
       image: "/svgs/graph.svg",
       price: "$150.25",
-      limit: "+3.5%",
+      limit: "3.5",
     },
     {
       id: 2,
       name: "숙명전자",
       image: "/svgs/graph.svg",
       price: "$3,450.00",
-      limit: "+1.2%",
+      limit: "-1.2",
     },
   ];
 

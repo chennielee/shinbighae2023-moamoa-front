@@ -69,11 +69,17 @@ const ChoseList = ({ stockData }) => {
                   </span>
                 </div>
               </div>
-              <div>{stock.limit}</div>
+              <S.Limit isPositive={stock.limit > 0}>
+                {stock.limit > 0 ? "+" : ""}
+                {stock.limit}%
+              </S.Limit>
             </S.Price>
-            <S.Heart>
-              <div>하트그림</div>
-            </S.Heart>
+
+            {stock.isLiked ? (
+              <S.Heart src="/images/fullHeart.png" alt="Filled Heart"></S.Heart>
+            ) : (
+              <S.Heart src="/images/emptyHeart.png" alt="Empty Heart"></S.Heart>
+            )}
           </S.Details>
         </S.MainContainer>
       ))}

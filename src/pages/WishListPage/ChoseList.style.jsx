@@ -9,6 +9,8 @@ export const MainContainer = styled.div`
   border-radius: 40px;
   background-color: white; /* 배경색을 흰색으로 설정합니다. */
   margin-bottom: 8%;
+  border-radius: 30px;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1);
 `;
 
 export const Details = styled.div`
@@ -25,15 +27,26 @@ export const Price = styled.div`
   align-items: center; /* 세로 중앙 정렬 */
   margin-bottom: 10%;
   margin-left: 20%;
+  line-height: 20px;
+  font-size: large;
+  font-weight: 600;
 `;
 
-export const Heart = styled.div`
-  width: 8%;
+export const Limit = styled.div`
+  color: ${(props) => (props.isPositive ? "red" : "blue")};
+`;
+
+export const Heart = styled.img`
+  width: auto;
+  max-width: 40px;
+  height: auto;
+  margin-right: 8%;
+  margin-top: -10%;
 `;
 
 export const Naming = styled.div`
-  font-size: xx-large;
-  font-weight: 400;
+  font-size: x-large;
+  font-weight: 600;
   display: block;
   width: 100%;
 `;
@@ -82,6 +95,7 @@ export const Value = styled.div`
 
   &.detail-link:hover {
     cursor: pointer;
+  }
 `;
 
 export const BuyBtn = styled.button`
