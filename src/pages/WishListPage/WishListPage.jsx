@@ -7,6 +7,10 @@ import { useNavigate } from "react-router-dom";
 const WishListPage = () => {
   const navigate = useNavigate();
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   const handleMakeGroupClick = () => {
     navigate("/makegroup1");
   };
@@ -57,7 +61,7 @@ const WishListPage = () => {
             alt="차트"
           />
           <S.GroupBtn
-            onClick={handleMakeGroupClick}
+            onClick={handleHomeClick}
             src="/svgs/group.svg"
             alt="그룹 페이지"
           />

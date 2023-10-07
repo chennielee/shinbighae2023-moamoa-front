@@ -3,13 +3,14 @@ import styled from "@emotion/styled";
 export const Head = styled.div`
   position: fixed;
   width: 100%;
-  margin: 32% auto 10% auto;
-  text-align: center; /* 텍스트 가운데 정렬 */
+  text-align: center;
+  background-color: white;
+  padding-top: 30%;
 `;
 
 export const Title = styled.div`
   font-size: xx-large;
-  margin-bottom: 10px; /* 아래 여백 추가 */
+  margin-bottom: 10px;
 `;
 
 export const Ask = styled.div`
@@ -17,7 +18,7 @@ export const Ask = styled.div`
   font-weight: 600;
   color: blue;
   margin: auto;
-  cursor: pointer; /* 포인터 커서로 변경하여 클릭 가능한 스타일로 표시 */
+  cursor: pointer;
 `;
 
 export const MakeGroup = styled.div`
@@ -31,11 +32,11 @@ export const MakeGroup = styled.div`
   text-align: center;
   height: 5%;
   margin: auto;
-  background-color: white; /* 배경색 추가 */
-  padding: 10px; /* 내부 여백 추가 */
-  border-radius: 10px; /* 둥근 테두리 추가 */
-  cursor: pointer; /* 포인터 커서로 변경하여 클릭 가능한 스타일로 표시 */
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 `;
 
 export const Options = styled.div`
@@ -50,8 +51,8 @@ export const Options = styled.div`
 
 export const Container = styled.div`
   width: 80%;
-  margin: 10% auto;
-  height: auto; /* 높이 자동 조절 */
+  margin: 50% auto;
+  height: 100%;
   overflow: auto;
 `;
 
@@ -78,6 +79,7 @@ export const GroupBtn = styled.img`
   bottom: -20px;
   width: 30px;
 `;
+
 export const UserBtn = styled.img`
   position: relative;
   bottom: -20px;

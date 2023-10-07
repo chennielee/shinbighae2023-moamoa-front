@@ -7,6 +7,10 @@ import GroupList from "./GroupList";
 const HomePage = () => {
   const navigate = useNavigate();
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   const handleMakeGroupClick = () => {
     navigate("/makegroup1");
   };
@@ -45,7 +49,7 @@ const HomePage = () => {
 
       <div style={{ overflowY: "scroll", height: "calc(100vh - 100px)" }}>
         <S.Container>
-          <GroupList stockData={groupData} />
+          <GroupList groupData={groupData} />
         </S.Container>{" "}
       </div>
 
@@ -58,7 +62,7 @@ const HomePage = () => {
             alt="차트"
           />
           <S.GroupBtn
-            onClick={handleMakeGroupClick}
+            onClick={handleHomeClick}
             src="/svgs/group.svg"
             alt="그룹 페이지"
           />

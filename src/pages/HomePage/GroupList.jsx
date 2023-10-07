@@ -1,9 +1,9 @@
 import React from "react";
-import * as S from "./GroupList.style"; // GroupList에 대한 CSS 스타일 파일을 import
+import * as S from "./GroupList.style";
 
 const GroupList = ({ groupData }) => {
   return (
-    <>
+    <div>
       {groupData &&
         groupData.map((group) => (
           <S.Group key={group.id}>
@@ -19,7 +19,7 @@ const GroupList = ({ groupData }) => {
             <S.GroupAim>{group.aim}</S.GroupAim>
           </S.Group>
         ))}
-    </>
+    </div>
   );
 };
 
