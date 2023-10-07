@@ -58,10 +58,23 @@ export const ProfitNumNegative = styled.div`
 `;
 
 export const GroupAim = styled.div`
-  height: 8px;
-  font-size: 16px;
-  margin-left: 5%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 15px;
   padding-left: 20px;
   padding-right: 20px;
+`;
+
+export const GroupAimIntro = styled.div`
+  font-size: 16px;
+  width: 50%;
+`;
+
+export const GroupAimPercentage = styled.div`
+  width: 185px;
+  height: 5px;
+  background-color: red;
+  background: url("../../assets/rectangle.svg") center/cover no-repeat;
 `;

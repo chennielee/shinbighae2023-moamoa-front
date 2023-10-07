@@ -20,7 +20,11 @@ const GroupList = ({ groupData }) => {
                 <S.ProfitNumNegative>{group.profit}</S.ProfitNumNegative>
               )}
             </S.GroupProfit>
-            <S.GroupAim>{group.aim}</S.GroupAim>
+
+            <S.GroupAim>
+              <S.GroupAimIntro>목표 달성률</S.GroupAimIntro>
+              <S.GroupAimPercentage>10%</S.GroupAimPercentage>
+            </S.GroupAim>
           </S.Group>
         ))}
     </div>

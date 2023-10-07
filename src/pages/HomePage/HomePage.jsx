@@ -29,28 +29,28 @@ const HomePage = () => {
       title: "'여행 가보자고'",
       isGroup: "모임",
       profit: "-10%",
-      aim: "목표 달성률",
+      aim: "80",
     },
     {
       id: 2,
       title: "'우리의 노후자금을 위해'",
       isGroup: "모임",
       profit: "+5%",
-      aim: "목표 달성률",
+      aim: "60",
     },
     {
       id: 3,
       title: "'떨어지면 우리 우정도 끝'",
       isGroup: "모임",
       profit: "+20%",
-      aim: "목표 달성률",
+      aim: "50",
     },
     {
       id: 3,
       title: "'우리 가족 사랑해'",
       isGroup: "모임",
       profit: "+30%",
-      aim: "목표 달성률",
+      aim: "40",
     },
   ];
 

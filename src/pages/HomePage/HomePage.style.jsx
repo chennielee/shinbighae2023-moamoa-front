@@ -6,6 +6,7 @@ export const Head = styled.div`
   text-align: center;
   background-color: white;
   padding-top: 25%;
+  padding-bottom: 20px;
 `;
 
 export const Title = styled.div`
