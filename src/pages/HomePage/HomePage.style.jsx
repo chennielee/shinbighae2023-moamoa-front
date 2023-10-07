@@ -5,18 +5,19 @@ export const Head = styled.div`
   width: 100%;
   text-align: center;
   background-color: white;
-  padding-top: 30%;
+  padding-top: 25%;
 `;
 
 export const Title = styled.div`
-  font-size: xx-large;
-  margin-bottom: 10px;
+  font-size: 45px;
+  margin-bottom: 20px;
+  font-weight: bold;
 `;
 
 export const Ask = styled.div`
-  font-size: x-large;
-  font-weight: 600;
-  color: blue;
+  font-size: 16px;
+  text-decoration: underline;
+  color: #1f65ff;
   margin: auto;
   cursor: pointer;
 `;
@@ -24,19 +25,18 @@ export const Ask = styled.div`
 export const MakeGroup = styled.div`
   position: sticky;
   z-index: 3;
-  bottom: 10%;
+  bottom: 12%;
   font-size: larger;
   margin: 0 auto;
-  border: 1px solid black;
   width: 200px;
   text-align: center;
   height: 5%;
-  margin: auto;
-  background-color: white;
+  background-color: #1f65ff;
+  color: white;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 10px 0px rgba(155, 159, 176, 1);
 `;
 
 export const Options = styled.div`
@@ -61,7 +61,7 @@ export const SelectOption = styled.div`
   flex-direction: row;
   justify-content: space-around;
   position: sticky;
-  border-top: 1px black solid;
+  border-top: 1px gray solid;
   width: 100%;
   z-index: 2;
   bottom: 8%;

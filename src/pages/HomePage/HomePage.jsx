@@ -26,16 +26,30 @@ const HomePage = () => {
   const groupData = [
     {
       id: 1,
-      title: "우리의 노후자금을 위해",
+      title: "'여행 가보자고'",
       isGroup: "모임",
       profit: "-10%",
       aim: "목표 달성률",
     },
     {
       id: 2,
-      title: "다른 그룹 제목",
+      title: "'우리의 노후자금을 위해'",
       isGroup: "모임",
       profit: "+5%",
+      aim: "목표 달성률",
+    },
+    {
+      id: 3,
+      title: "'떨어지면 우리 우정도 끝'",
+      isGroup: "모임",
+      profit: "+20%",
+      aim: "목표 달성률",
+    },
+    {
+      id: 3,
+      title: "'우리 가족 사랑해'",
+      isGroup: "모임",
+      profit: "+30%",
       aim: "목표 달성률",
     },
   ];
@@ -43,8 +57,8 @@ const HomePage = () => {
   return (
     <PageLayout>
       <S.Head>
-        <S.Title> 이미 참여한 모임 </S.Title>
-        <S.Ask> 모임 참여하기 </S.Ask>
+        <S.Title> 나의 모임 </S.Title>
+        <S.Ask> 모임 참여하러 가기 </S.Ask>
       </S.Head>
 
       <div style={{ overflowY: "scroll", height: "calc(100vh - 100px)" }}>
@@ -53,7 +67,8 @@ const HomePage = () => {
         </S.Container>{" "}
       </div>
 
-      <S.MakeGroup onClick={handleMakeGroupClick}>+ 모임 생성하기</S.MakeGroup>
+      <S.MakeGroup onClick={handleMakeGroupClick}>+ 새 모임 만들기</S.MakeGroup>
+
       <S.Options>
         <S.SelectOption>
           <S.InvestBtn

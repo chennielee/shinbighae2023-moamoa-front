@@ -1,17 +1,19 @@
 import styled from "@emotion/styled";
 
 export const Group = styled.div`
-  border: 1px solid black;
-  height: 20%;
-  width: 100%;
-  margin: 30% auto 10% auto;
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  height: 150px;
+  width: 95%;
+  margin: 10% auto 10% auto;
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1);
 `;
 
 export const GroupTitle = styled.div`
   height: 8px;
-  margin-bottom: 10px;
+  margin: 10px;
+  margin-bottom: 20px;
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,15 +23,14 @@ export const GroupTitle = styled.div`
 export const GroupTitleName = styled.div`
   margin: auto;
   height: 8px;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  font-size: x-large;
-  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 23px;
+  font-weight: bold;
 `;
 
 export const IsGroup = styled.div`
   margin: 3px auto;
-  font-size: large;
+  font-size: 23px;
 `;
 
 export const GroupProfit = styled.div`
@@ -37,19 +38,30 @@ export const GroupProfit = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  margin: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export const ProfitIntro = styled.div`
-  font-size: larger;
+  font-size: 16px;
 `;
 
-export const ProfitNum = styled.div`
-  font-size: larger;
+export const ProfitNumPositive = styled.div`
+  font-size: 16px;
+  color: red;
+`;
+
+export const ProfitNumNegative = styled.div`
+  font-size: 16px;
+  color: blue;
 `;
 
 export const GroupAim = styled.div`
   height: 8px;
-  font-size: larger;
+  font-size: 16px;
   margin-left: 5%;
+  margin: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;

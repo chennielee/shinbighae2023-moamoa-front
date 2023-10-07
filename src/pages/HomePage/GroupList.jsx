@@ -14,7 +14,11 @@ const GroupList = ({ groupData }) => {
 
             <S.GroupProfit>
               <S.ProfitIntro>수익률</S.ProfitIntro>
-              <S.ProfitNum>{group.profit}</S.ProfitNum>
+              {group.profit.charAt(0) === "+" ? (
+                <S.ProfitNumPositive>{group.profit}</S.ProfitNumPositive>
+              ) : (
+                <S.ProfitNumNegative>{group.profit}</S.ProfitNumNegative>
+              )}
             </S.GroupProfit>
             <S.GroupAim>{group.aim}</S.GroupAim>
           </S.Group>
