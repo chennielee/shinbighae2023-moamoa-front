@@ -9,7 +9,7 @@ const GroupPage = () => {
   // 데이터 전달 확인하기
   const { state } = useLocation();
 
-  // 새로우 모임 관리
+  // 새로운 모임 관리
   const [newGroupData, setNewGroupData] = useState(null);
 
   // API : Get
@@ -20,38 +20,38 @@ const GroupPage = () => {
       const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
       const url =
         "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+      const pathVr = state.meetingId;
 
       try {
         // url 먼저 받아오기(await)
         const response = await axios.get(
-          `${proxyServerUrl}${url}/api/v1/meeting`,
-          {
-            params: { meetingId: state.meetingId },
-          },
+          `${proxyServerUrl}${url}/api/v1/meeting/${pathVr}`,
           {
             headers: { authorization: authorizationToken },
           }
         );
-        setNewGroupData(response.data.result.meetingList);
-        // console.log(response.data.result.meetingList);
-        // setGroupData(response.data.groupData);
+        setNewGroupData(response.data.result);
+        // console.log(response.data.result);
       } catch (e) {
         console.log(e);
       }
-      // setLoading(false);
     };
     fetchData();
   }, []);
-
-  console.log(newGroupData);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [members, setMembers] = useState(["엄마", "아빠"]);
 
   const priceData = [
-    { name: "Stock 1", profit: "5%", holding: 10, currentPrice: "$50" },
-    { name: "Stock 2", profit: "2%", holding: 15, currentPrice: "$60" },
+    {
+      id: 1,
+      name: "한진칼",
+      profit: "+20%",
+      holding: 4,
+      currentPrice: "25100",
+    },
+    { name: "노랑풍선", profit: "+6.5%", holding: 7, currentPrice: "5123" },
   ];
 
   const navigate = useNavigate();
@@ -100,8 +100,10 @@ const GroupPage = () => {
   return (
     <PageLayout>
       <S.Top>
-        <S.MemberType onClick={openModal}>가족</S.MemberType>
-        <S.Title> 여행 가보자고 </S.Title>
+        <S.MemberType onClick={openModal}>
+          {newGroupData.particiPantType}
+        </S.MemberType>
+        <S.Title>{newGroupData.meetingName}</S.Title>
       </S.Top>
 
       {isModalVisible && (
@@ -131,32 +133,32 @@ const GroupPage = () => {
         <S.Middle>
           <S.MoneyNow>
             <S.TotalCap> 총 자산 </S.TotalCap>
-            <S.NowTotal>4000000</S.NowTotal>
+            <S.NowTotal>4,500,000원</S.NowTotal>
           </S.MoneyNow>
 
           <S.ContentBox>
             <S.MainTitle>총 투자금</S.MainTitle>
-            <S.MainContent>1111111</S.MainContent>
+            <S.MainContent>{newGroupData.totalInvestment}</S.MainContent>
           </S.ContentBox>
 
           <S.ContentBox>
             <S.MainTitle>목표금액</S.MainTitle>
-            <S.MainContent></S.MainContent>
+            <S.MainContent>{newGroupData.profitTarget}</S.MainContent>
           </S.ContentBox>
 
           <S.ContentBox>
             <S.MainTitle>수익률</S.MainTitle>
-            <S.AchieveRate> 26.5 % </S.AchieveRate>
+            <S.AchieveRate>+26.5 %</S.AchieveRate>
           </S.ContentBox>
 
           <S.ContentBox>
             <S.MainTitle>달성률</S.MainTitle>
-            <S.AchiBar2> 받아오기 </S.AchiBar2>
+            <S.AchiBar2>80%</S.AchiBar2>
           </S.ContentBox>
 
           <S.LeftDay>
-            <S.MainTitle>남은기간</S.MainTitle>
-            <S.LeftCount> D- 37</S.LeftCount>
+            <S.MainTitle>남은 기간</S.MainTitle>
+            <S.LeftCount>D - {newGroupData.deadlineDate}</S.LeftCount>
           </S.LeftDay>
         </S.Middle>
         <S.Container>

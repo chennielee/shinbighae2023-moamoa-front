@@ -18,9 +18,9 @@ const GroupList = ({ groupData }) => {
   ];
 
   let i = 0;
-  for (let index in groupData) {
-    groupData[index].profit = additionalGroupData[i].profit;
-    groupData[index].aim = additionalGroupData[i].aim;
+  for (let i in groupData) {
+    groupData[i].profit = additionalGroupData[i].profit;
+    groupData[i].aim = additionalGroupData[i].aim;
     i++;
   }
 

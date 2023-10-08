@@ -4,10 +4,9 @@ import * as S from "./InvestChange.style";
 const InvestChange = ({ priceData }) => {
   return (
     <div>
-      {priceData.map((stock, index) => (
-        <S.MainBox>
+      {priceData.map((stock) => (
+        <S.MainBox key={stock.id}>
           {" "}
-          key={index}
           <S.Title>{stock.name}</S.Title>
           <S.ProfitArr>
             <S.Profits>수익률</S.Profits>

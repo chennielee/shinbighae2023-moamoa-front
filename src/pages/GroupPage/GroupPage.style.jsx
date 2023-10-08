@@ -9,27 +9,28 @@ export const Top = styled.div`
 `;
 
 export const MemberType = styled.div`
-  border: 1px black solid;
   text-align: center;
-  font-size: larger;
+  font-size: 25px;
+  font-weight: bold;
   margin-top: 10%;
-  height: 25%;
-  width: 34%;
+  width: 30%;
   margin: 10% auto 3%;
+  background-color: #eaf3fe;
 `;
 
 export const Title = styled.div`
   text-align: center;
-  font-size: xxx-large;
-  font-weight: 600;
+  font-size: 45px;
+  font-weight: bold;
 `;
 
 export const Middle = styled.div`
-  border: 1px #0000005e solid;
-  width: 80%;
-  height: 46%;
-  border-radius: 14px;
-  margin: 40% auto 10%;
+  height: 50%;
+  width: 90%;
+  margin: 35% auto 10% auto;
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
 `;
 
 export const MoneyNow = styled.div`
@@ -40,49 +41,59 @@ export const MoneyNow = styled.div`
 export const TotalCap = styled.div`
   margin-left: 5%;
   margin-top: 6%;
+  font-weight: bold;
+  margin-bottom: 4%;
 `;
 
 export const NowTotal = styled.div`
-  font-size: xx-large;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: bold;
   margin-left: 5%;
   margin-right: 5%;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid lightgray;
   padding-bottom: 3%;
 `;
 
 export const ContentBox = styled.div`
+  margin: 10px auto;
   display: flex;
   flex-direction: row;
-  margin-bottom: 8%;
-  margin-top: 5%;
+  width: 90%;
+  height: 10%;
+  border-bottom: 2px solid lightgray;
 `;
 
 export const MainTitle = styled.div`
+  padding-top: 7px;
+  font-weight: bold;
   float: left;
-  margin-left: 6%;
 `;
 
 export const MainContent = styled.div`
-  padding-left: 23%;
+  padding-left: 250px;
+  padding-top: 7px;
 `;
 
 export const AchieveRate = styled.div`
   float: right;
   margin-right: 7%;
   color: red;
-  padding-left: 30%;
+  padding-left: 270px;
+  padding-top: 7px;
 `;
 
 export const AchiBar2 = styled.div`
   float: right;
   margin-right: 6%;
-  padding-left: 30%;
+  padding-left: 272px;
 `;
 
 export const LeftDay = styled.div`
+  padding-left: 350px;
+  padding-top: 7px;
   display: flex;
   flex-direction: column;
+  font-weight: bold;
 `;
 
 export const LeftCap = styled.div`
@@ -90,7 +101,7 @@ export const LeftCap = styled.div`
 `;
 
 export const LeftCount = styled.div`
-  margin-left: 6%;
+  margin-left: 0%;
   margin-top: 5%;
   font-size: xx-large;
 `;

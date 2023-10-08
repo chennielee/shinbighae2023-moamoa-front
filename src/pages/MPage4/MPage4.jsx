@@ -9,28 +9,28 @@ function MPage4() {
   // 데이터 전달 확인하기
   const { state } = useLocation();
 
-  // response data 상태 관리
-  const [userId, setUserId] = useState("");
-
   // 모임 상세 페이지로 넘어가기
   const navigate = useNavigate();
   const handleSuccessClick = () => {
-    navigate("/group", { state: { meetingId: userId } });
-    // API 작업
     fetchData();
+    // next page
+    navigate("/group", { state: { meetingId: userId.result } });
   };
 
-  // API Post
-  const fetchData = async () => {
+  // response data 상태 관리
+  const [userId, setUserId] = useState(null);
+
+  // API 작업
+  let fetchData = async () => {
     let authorizationToken = "1";
     const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
     const url = "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
 
     try {
-      const response = axios.post(
+      const response = await axios.post(
         `${proxyServerUrl}${url}/api/v1/meeting`,
         {
-          purposeType: "",
+          purposeType: "HEALTHCARE",
           participantType: state.participantType,
           profitTarget: state.profitTarget,
           deadlineDate: `${state.deadlineDate}T00:00:00.00000`,
@@ -41,7 +41,7 @@ function MPage4() {
           headers: { authorization: authorizationToken },
         }
       );
-      setUserId(response.data.result);
+      setUserId(response.data);
     } catch (e) {
       console.log(e);
     }

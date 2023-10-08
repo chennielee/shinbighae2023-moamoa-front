@@ -24,10 +24,9 @@ const HomePage = () => {
     navigate("/group");
   };
 
-  // 상태관리
-  const [groupData, setGoupData] = useState(null);
+  // API 작업
+  const [groupData, setGroupData] = useState(null);
 
-  // API : Get
   useEffect(() => {
     // async를 사용하는 함수 따로 선언
     const fetchData = async () => {
@@ -44,7 +43,7 @@ const HomePage = () => {
             headers: { authorization: authorizationToken },
           }
         );
-        setGoupData(response.data.result.meetingList);
+        setGroupData(response.data.result.meetingList);
         // console.log(response.data.result.meetingList);
         // setGroupData(response.data.groupData);
       } catch (e) {
