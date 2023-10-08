@@ -61,16 +61,42 @@ const ChoseList = ({ stockData }) => {
     }
   };
 
+  //주식 api
+  const additionalStockData = [
+    {
+      image: "/svgs/graph.svg",
+      price: "$150.25",
+      limit: "3.5",
+    },
+    {
+      image: "/svgs/graph.svg",
+      price: "$3,450.00",
+      limit: "-1.2",
+    },
+    {
+      image: "/svgs/graph.svg",
+      price: "$3,450.00",
+      limit: "+8.9",
+    },
+  ];
+
+  let i = 0;
+  for (let i in stockData) {
+    stockData[i].price = additionalStockData[i].price;
+    stockData[i].limit = additionalStockData[i].limit;
+    stockData[i].image = additionalStockData[i].image;
+    i++;
+  }
   return (
     <div>
       {stockData.map((stock) => (
-        <S.MainContainer key={stock.id} onClick={() => openModal(stock)}>
-          <S.Naming>{stock.name}</S.Naming>
+        <S.MainContainer key={stock.stockId} onClick={() => openModal(stock)}>
+          <S.Naming>{stock.stockName}</S.Naming>
           <S.Details>
             <div>
               <img
                 src={stock.image}
-                alt={stock.name}
+                alt={stock.stockId}
                 style={{ width: "140%" }}
               />
             </div>
@@ -93,7 +119,7 @@ const ChoseList = ({ stockData }) => {
               </S.Limit>
             </S.Price>
 
-            {isLiked ? (
+            {stock.isLiked ? (
               <S.Heart src="/images/fullHeart.png" alt="Filled Heart" />
             ) : (
               <S.Heart src="/images/emptyHeart.png" alt="Empty Heart" />

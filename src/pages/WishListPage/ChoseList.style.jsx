@@ -4,7 +4,6 @@ export const MainContainer = styled.div`
   width: 100%; /* 전체 너비로 설정 */
   margin: 0 auto;
   padding-left: 20px;
-  padding-top: 20px;
   border: 1px solid #ccc;
   border-radius: 40px;
   background-color: white; /* 배경색을 흰색으로 설정합니다. */
@@ -45,10 +44,12 @@ export const Heart = styled.img`
 `;
 
 export const Naming = styled.div`
-  font-size: x-large;
+  font-size: large;
   font-weight: 600;
   display: block;
   width: 100%;
+  margin-top: 12px;
+  margin-bottom: -10px;
 `;
 
 export const StockModal = styled.div`

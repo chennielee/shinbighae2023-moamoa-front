@@ -3,6 +3,8 @@ import ChoseList from "./ChoseList";
 import * as S from "./WishListPage.style";
 import { PageLayout } from "../../components";
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+// import { useEffect } from "react";
 
 const WishListPage = () => {
   const navigate = useNavigate();
@@ -23,19 +25,43 @@ const WishListPage = () => {
     navigate("/group");
   };
 
+  // useEffect(() => {
+
+  //     const stockData = async () => {
+
+  //       const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
+  //       const url =
+  //          "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+
+  //       try {
+
+  //          const response = await axios.get(
+  //           `${proxyServerUrl}${url}/api/v1/meeting`,
+  //           {
+  //              headers: { authorization },
+  //           }
+  //         );
+  //         setstockData(response.data.result.meetingList);
+  //        } catch (e) {
+  //          console.log(e);
+  //       }
+
+  //      };
+  //     stockData();
+  //    }, []);
+
   const stockData = [
     {
-      // 이미지 카
-      image: "/svgs/graph.svg",
-      price: "$150.25",
-      limit: "3.5",
+      stockId: 56,
+      stockName: "하나투어",
     },
     {
-      id: 2,
-      name: "숙명전자",
-      image: "/svgs/graph.svg",
-      price: "$3,450.00",
-      limit: "-1.2",
+      stockId: 7,
+      stockName: "진에어",
+    },
+    {
+      stockId: 9,
+      stockName: "AK 홀딩스",
     },
   ];
 
