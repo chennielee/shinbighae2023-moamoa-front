@@ -7,29 +7,26 @@ export const Questions = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  margin-top: 26%;
+  margin-top: 20%;
 `;
 
 export const Title = styled.div`
-font-size: xxx-large;
-    border: 1px solid black;
-    margin-bottom: 3%;
-    width: 78%;
-    height: 16%;
-    text-align: center;
-    font-weight: 600;
-}
+  font-size: 35px;
+  line-height: 45px;
+  width: 78%;
+  height: 16%;
+  text-align: center;
+  font-weight: 600;
+  white-space: pre-line;
 `;
 
 export const Image = styled.img`
-  border: 1px solid black;
-  width: 40%;
-  height: 20%;
-  margin-bottom: 3%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
 `;
 
 export const Details = styled.div`
   width: 90%;
   height: 60%;
-  border: 1px solid black;
 `;

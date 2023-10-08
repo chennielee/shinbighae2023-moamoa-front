@@ -4,46 +4,73 @@ export const ChoiceWhat = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  width: 100%;
 `;
 
 export const MainForm = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0px auto 64px auto;
+  width: 100%;
 `;
 
-export const Forms = styled.form``;
+export const Forms = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 30px;
+`;
 
 export const Caption = styled.div`
   text-align: center;
-  margin-top: 24%;
-  font-size: xx-large;
+  margin-top: 8%;
+  font-size: 28px;
+  font-weight: 600;
 `;
-
-export const MemCaption = styled.div`
-margin-top: 14%;
-text-align: center;
-font-size: xx-large;
-}`;
 
 export const InputText = styled.input`
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin: 20px auto 10px auto;
+  border: none;
+  width: 90%;
+  border-bottom: 2px solid #ccc;
   font-size: 20px;
-  margin-top: 8%;
+  text-align: center;
 `;
 
 export const MemberInput = styled.input`
-  margin-top: 12%;
-  height: 30px;
+  margin: 20px auto 10px auto;
+  height: 40px;
+  width: 97%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 20px;
+  text-align: center;
 `;
 
 export const Next = styled.button`
-  height: 30px;
-  width: 50%;
-  border: 1px solid black;
+  background-color: #1f65ff;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px 0px rgba(155, 159, 176, 1);
+  height: 50px;
+  width: 80%;
+  text-align: center;
+  margin: 10% auto;
+`;
+export const NextDisabled = styled.button`
+  background-color: #eaf3fe;
+  color: #1f65ff;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 80%;
   text-align: center;
   margin: 10% auto;
 `;

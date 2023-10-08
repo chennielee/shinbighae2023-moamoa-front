@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import Rec from "../../images/rectangle.svg";
+import Ecl from "../../images/eclipse.svg";
 
 export const Group = styled.div`
   height: 150px;
@@ -75,6 +77,13 @@ export const GroupAimIntro = styled.div`
 export const GroupAimPercentage = styled.div`
   width: 185px;
   height: 5px;
-  background-color: red;
-  background: url("../../assets/rectangle.svg") center/cover no-repeat;
+  border-radius: 5px;
+  background-image: url(${Rec});
+`;
+
+export const GroupAimPercentageMove = styled.div`
+  margin-top: -4px;
+  width: 20px;
+  height: 20px;
+  background-image: url(${Ecl});
 `;

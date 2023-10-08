@@ -2,14 +2,36 @@ import React from "react";
 import * as S from "./GroupList.style";
 
 const GroupList = ({ groupData }) => {
+  const additionalGroupData = [
+    {
+      profit: "-10%",
+      aim: "80",
+    },
+    {
+      profit: "+5%",
+      aim: "60",
+    },
+    {
+      profit: "+20%",
+      aim: "50",
+    },
+  ];
+
+  let i = 0;
+  for (let i in groupData) {
+    groupData[i].profit = additionalGroupData[i].profit;
+    groupData[i].aim = additionalGroupData[i].aim;
+    i++;
+  }
+
   return (
     <div>
       {groupData &&
         groupData.map((group) => (
-          <S.Group key={group.id}>
+          <S.Group key={group.meetingId}>
             <S.GroupTitle>
-              <S.GroupTitleName>{group.title}</S.GroupTitleName>
-              <S.IsGroup>{group.isGroup}</S.IsGroup>
+              <S.GroupTitleName>{group.meetingName}</S.GroupTitleName>
+              <S.IsGroup>모임</S.IsGroup>
             </S.GroupTitle>
 
             <S.GroupProfit>
@@ -20,10 +42,13 @@ const GroupList = ({ groupData }) => {
                 <S.ProfitNumNegative>{group.profit}</S.ProfitNumNegative>
               )}
             </S.GroupProfit>
-
             <S.GroupAim>
               <S.GroupAimIntro>목표 달성률</S.GroupAimIntro>
-              <S.GroupAimPercentage>10%</S.GroupAimPercentage>
+              <S.GroupAimPercentage>
+                <S.GroupAimPercentageMove
+                  style={{ marginLeft: `${group.aim}px` }}
+                ></S.GroupAimPercentageMove>
+              </S.GroupAimPercentage>
             </S.GroupAim>
           </S.Group>
         ))}

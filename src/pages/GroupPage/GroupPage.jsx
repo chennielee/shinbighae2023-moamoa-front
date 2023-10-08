@@ -2,9 +2,37 @@ import React, { useState } from "react";
 import { PageLayout } from "../../components";
 import InvestChange from "./InvestChange";
 import * as S from "./GroupPage.style";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const GroupPage = () => {
+  // // API : Get
+  // useEffect(() => {
+  //   // async를 사용하는 함수 따로 선언
+  //   const fetchData = async () => {
+  //     let authorizationToken = "1";
+  //     const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
+  //     const url =
+  //       "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+
+  //     try {
+  //       // url 먼저 받아오기(await)
+  //       const response = await axios.get(
+  //         `${proxyServerUrl}${url}/api/v1/meeting`,
+  //         {
+  //           headers: { authorization: authorizationToken },
+  //         }
+  //       );
+  //       setGroupData(response.data.result.meetingList);
+  //       // console.log(response.data.result.meetingList);
+  //       // setGroupData(response.data.groupData);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //     // setLoading(false);
+  //   };
+  //   fetchData();
+  // }, []);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [members, setMembers] = useState(["엄마", "아빠"]);
