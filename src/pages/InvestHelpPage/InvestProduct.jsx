@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as S from "./InvestProduct.style";
-import axios from "axios";
 
 const StockModal = ({ stock, onClose, onBuy, onSell }) => {
   return (
@@ -23,16 +22,12 @@ const StockModal = ({ stock, onClose, onBuy, onSell }) => {
   );
 };
 
-const InvestProduct = ({ RecommandData }) => {
+const InvestProduct = ({ stockData }) => {
   const [selectedStock, setSelectedStock] = useState(null);
-  const [isLiked, setIsLiked] = useState(false);
 
   // 모달 열기
   const openModal = (stock) => {
     setSelectedStock(stock);
-
-    // 서버로부터 IsLiked 값을 가져오는 API 호출
-    fetchIsLiked(stock.meetingId);
   };
 
   const closeModal = () => {
@@ -41,36 +36,91 @@ const InvestProduct = ({ RecommandData }) => {
 
   // 매수 이벤트 핸들러
   const handleBuy = (stock) => {
-    prompt(` ${stock.name} 을(를) 몇 주 구매하시겠습니까?`);
+    prompt(` ${stock.stockName} 을(를) 몇 주 구매하시겠습니까?`);
   };
 
   // 매도 이벤트 핸들러
   const handleSell = (stock) => {
-    prompt(` ${stock.name} 을(를) 몇 주 판매하시겠습니까?`);
+    prompt(` ${stock.stockName} 을(를) 몇 주 판매하시겠습니까?`);
   };
+  //주식 api
+  const additionalStockData = [
+    {
+      image: "/svgs/graph.svg",
+      price: "$150.25",
+      limit: "3.5",
+    },
+    {
+      image: "/svgs/graph.svg",
+      price: "$3,450.00",
+      limit: "-1.2",
+    },
+    {
+      image: "/svgs/graph.svg",
+      price: "$3,450.00",
+      limit: "8.9",
+    },
 
-  const fetchIsLiked = async (meetingId) => {
-    try {
-      const response = await axios.get(
-        `/api/v1/meeting/${meetingId}/recommend`
-      );
+    {
+      image: "/svgs/graph.svg",
+      price: "$450.00",
+      limit: "10.1",
+    },
 
-      setIsLiked(response.data.IsLiked);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-    }
-  };
+    {
+      image: "/svgs/graph.svg",
+      price: "$3,234.00",
+      limit: "-3.2",
+    },
 
+    {
+      image: "/svgs/graph.svg",
+      price: "$7,190.00",
+      limit: "-2.5",
+    },
+
+    {
+      image: "/svgs/graph.svg",
+      price: "$630.00",
+      limit: "5.8",
+    },
+
+    {
+      image: "/svgs/graph.svg",
+      price: "$72.53",
+      limit: "3.1",
+    },
+
+    {
+      image: "/svgs/graph.svg",
+      price: "$90.04",
+      limit: "8.3",
+    },
+
+    {
+      image: "/svgs/graph.svg",
+      price: "$2,735.00",
+      limit: "-7.5",
+    },
+  ];
+
+  let i = 0;
+  for (let i in stockData) {
+    stockData[i].price = additionalStockData[i].price;
+    stockData[i].limit = additionalStockData[i].limit;
+    stockData[i].image = additionalStockData[i].image;
+    i++;
+  }
   return (
     <div>
-      {RecommandData.map((stock) => (
-        <S.MainContainer key={stock.id} onClick={() => openModal(stock)}>
-          <S.Naming>{stock.name}</S.Naming>
+      {stockData.map((stock) => (
+        <S.MainContainer key={stock.stockId} onClick={() => openModal(stock)}>
+          <S.Naming>{stock.stockName}</S.Naming>
           <S.Details>
             <div>
               <img
                 src={stock.image}
-                alt={stock.name}
+                alt={stock.stockId}
                 style={{ width: "140%" }}
               />
             </div>
@@ -93,7 +143,7 @@ const InvestProduct = ({ RecommandData }) => {
               </S.Limit>
             </S.Price>
 
-            {isLiked ? (
+            {stock.isLiked ? (
               <S.Heart src="/images/fullHeart.png" alt="Filled Heart" />
             ) : (
               <S.Heart src="/images/emptyHeart.png" alt="Empty Heart" />
@@ -113,5 +163,4 @@ const InvestProduct = ({ RecommandData }) => {
     </div>
   );
 };
-
 export default InvestProduct;

@@ -15,11 +15,6 @@ export const TeamName = styled.div`
   font-weight: 600;
 `;
 
-export const TeamDetail = styled.div`
-  font-size: large;
-  margin-top: 6%;
-`;
-
 export const Options = styled.div`
   width: 100%;
   z-index: 2;

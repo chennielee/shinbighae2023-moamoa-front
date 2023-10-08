@@ -45,10 +45,12 @@ export const Heart = styled.img`
 `;
 
 export const Naming = styled.div`
-  font-size: x-large;
+  font-size: large;
   font-weight: 600;
   display: block;
   width: 100%;
+  margin-top: 12px;
+  margin-bottom: -10px;
 `;
 
 export const StockModal = styled.div`
