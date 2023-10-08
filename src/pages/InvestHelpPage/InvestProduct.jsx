@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "./ChoseList.style";
+import * as S from "./InvestProduct.style";
 import axios from "axios";
 
 const StockModal = ({ stock, onClose, onBuy, onSell }) => {
@@ -23,7 +23,7 @@ const StockModal = ({ stock, onClose, onBuy, onSell }) => {
   );
 };
 
-const ChoseList = ({ stockData }) => {
+const InvestProduct = ({ RecommandData }) => {
   const [selectedStock, setSelectedStock] = useState(null);
   const [isLiked, setIsLiked] = useState(false);
 
@@ -63,7 +63,7 @@ const ChoseList = ({ stockData }) => {
 
   return (
     <div>
-      {stockData.map((stock) => (
+      {RecommandData.map((stock) => (
         <S.MainContainer key={stock.id} onClick={() => openModal(stock)}>
           <S.Naming>{stock.name}</S.Naming>
           <S.Details>
@@ -114,4 +114,4 @@ const ChoseList = ({ stockData }) => {
   );
 };
 
-export default ChoseList;
+export default InvestProduct;

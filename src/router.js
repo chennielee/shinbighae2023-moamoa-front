@@ -1,6 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { HomePage, SignUpPage, GroupPage, WishListPage } from "./pages";
+import {
+  HomePage,
+  SignUpPage,
+  GroupPage,
+  WishListPage,
+  InvestHelpPage,
+} from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/wish",
     element: <WishListPage />,
+  },
+
+  {
+    path: "/helppage",
+    element: <InvestHelpPage />,
   },
 ]);
 
