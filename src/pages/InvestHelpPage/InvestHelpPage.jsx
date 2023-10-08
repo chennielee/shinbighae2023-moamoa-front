@@ -1,12 +1,13 @@
-import { PageLayout } from "../../components";
-import * as S from "./HomePage.style";
-import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import GroupList from "./GroupList";
+import * as S from "./InvestHelpPage.style";
+import { PageLayout } from "../../components";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import InvestProduct from "./InvestProduct";
 
-const HomePage = () => {
+const InvestHelpPage = () => {
   const navigate = useNavigate();
+  const [stockData, setStockData] = useState([]); // 1. stockData 상태 정의
 
   const handleHomeClick = () => {
     navigate("/home");
@@ -24,50 +25,40 @@ const HomePage = () => {
     navigate("/group");
   };
 
-  // API 작업
-  const [groupData, setGroupData] = useState(null);
-
   useEffect(() => {
-    // async를 사용하는 함수 따로 선언
-    const fetchData = async () => {
-      let authorizationToken = "1";
+    const stockDataFetch = async () => {
       const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
       const url =
         "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
 
       try {
-        // url 먼저 받아오기(await)
         const response = await axios.get(
-          `${proxyServerUrl}${url}/api/v1/meeting`,
+          `${proxyServerUrl}${url}//api/v1/stock`,
           {
-            headers: { authorization: authorizationToken },
+            headers: { authorization: 1 }, // 2. 토큰 설정 (임시값으로 1 설정)
           }
         );
-        setGroupData(response.data.result.meetingList.slice(-3));
-        // console.log(response.data.result.meetingList.slice(-3));
-        // setGroupData(response.data.groupData);
+        setStockData(response.data.result.suggestedStockList); // 3. stockData 상태 업데이트
       } catch (e) {
         console.log(e);
       }
-      // setLoading(false);
     };
-    fetchData();
+
+    stockDataFetch();
   }, []);
 
   return (
     <PageLayout>
-      <S.Head>
-        <S.Title> 나의 모임 </S.Title>
-        <S.Ask> 모임 참여하러 가기 </S.Ask>
-      </S.Head>
+      <S.Header>
+        <S.TeamName>여행 가보자고</S.TeamName>
+      </S.Header>
 
       <div style={{ overflowY: "scroll", height: "calc(100vh - 100px)" }}>
         <S.Container>
-          <GroupList groupData={groupData} />
+          {/* 4. stockData를 ChoseList 컴포넌트에 전달 */}
+          <InvestProduct stockData={stockData} />
         </S.Container>{" "}
       </div>
-
-      <S.MakeGroup onClick={handleMakeGroupClick}>+ 새 모임 만들기</S.MakeGroup>
 
       <S.Options>
         <S.SelectOption>
@@ -91,5 +82,4 @@ const HomePage = () => {
     </PageLayout>
   );
 };
-
-export default HomePage;
+export default InvestHelpPage;
