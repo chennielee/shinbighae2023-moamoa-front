@@ -8,36 +8,37 @@ import axios from "axios";
 const GroupPage = () => {
   // 데이터 전달 확인하기
   const { state } = useLocation();
+  console.log(state.meetingId);
+  const pathVr = state.meetingId;
 
   // 새로운 모임 관리
   const [newGroupData, setNewGroupData] = useState(null);
 
-  // API : Get
-  useEffect(() => {
-    // async를 사용하는 함수 따로 선언
-    const fetchData = async () => {
-      let authorizationToken = "1";
-      const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
-      const url =
-        "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
-      const pathVr = state.meetingId;
+  // // API : Get
+  // useEffect(() => {
+  //   // async를 사용하는 함수 따로 선언
+  //   const fetchData = async () => {
+  //     let authorizationToken = "1";
+  //     const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
+  //     const url =
+  //       "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
 
-      try {
-        // url 먼저 받아오기(await)
-        const response = await axios.get(
-          `${proxyServerUrl}${url}/api/v1/meeting/${pathVr}`,
-          {
-            headers: { authorization: authorizationToken },
-          }
-        );
-        setNewGroupData(response.data.result);
-        // console.log(response.data.result);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchData();
-  }, []);
+  //     try {
+  //       // url 먼저 받아오기(await)
+  //       const response = await axios.get(
+  //         `${proxyServerUrl}${url}/api/v1/meeting/${pathVr}`,
+  //         {
+  //           headers: { authorization: authorizationToken },
+  //         }
+  //       );
+  //       console.log(response.data);
+  //       // setNewGroupData(response.data);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -45,7 +46,6 @@ const GroupPage = () => {
 
   const priceData = [
     {
-      id: 1,
       name: "한진칼",
       profit: "+20%",
       holding: 4,
@@ -100,10 +100,8 @@ const GroupPage = () => {
   return (
     <PageLayout>
       <S.Top>
-        <S.MemberType onClick={openModal}>
-          {newGroupData.particiPantType}
-        </S.MemberType>
-        <S.Title>{newGroupData.meetingName}</S.Title>
+        <S.MemberType onClick={openModal}>가족</S.MemberType>
+        <S.Title>즐거운 크리스마스 여행</S.Title>
       </S.Top>
 
       {isModalVisible && (
@@ -138,12 +136,12 @@ const GroupPage = () => {
 
           <S.ContentBox>
             <S.MainTitle>총 투자금</S.MainTitle>
-            <S.MainContent>{newGroupData.totalInvestment}</S.MainContent>
+            <S.MainContent>4500000</S.MainContent>
           </S.ContentBox>
 
           <S.ContentBox>
             <S.MainTitle>목표금액</S.MainTitle>
-            <S.MainContent>{newGroupData.profitTarget}</S.MainContent>
+            <S.MainContent>4000000</S.MainContent>
           </S.ContentBox>
 
           <S.ContentBox>
@@ -158,7 +156,7 @@ const GroupPage = () => {
 
           <S.LeftDay>
             <S.MainTitle>남은 기간</S.MainTitle>
-            <S.LeftCount>D - {newGroupData.deadlineDate}</S.LeftCount>
+            <S.LeftCount>D - 19</S.LeftCount>
           </S.LeftDay>
         </S.Middle>
         <S.Container>
