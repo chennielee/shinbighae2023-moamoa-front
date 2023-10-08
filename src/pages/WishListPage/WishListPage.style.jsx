@@ -11,7 +11,7 @@ export const Header = styled.div`
 `;
 
 export const TeamName = styled.div`
-  font-size: xxx-large;
+  font-size: 42px;
   font-weight: 600;
 `;
 
@@ -65,21 +65,4 @@ export const UserBtn = styled.img`
   position: relative;
   bottom: -20px;
   width: 30px;
-`;
-export const MainContainer = styled.div`
-  width: 60%;
-`;
-
-export const Details = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-export const Price = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Heart = styled.div`
-  width: 8%;
 `;

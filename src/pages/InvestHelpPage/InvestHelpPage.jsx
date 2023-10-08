@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./InvestHelpPage.style";
 import { PageLayout } from "../../components";
-import InvestProduct from "./InvestProduct";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import InvestProduct from "./InvestProduct";
 
 const InvestHelpPage = () => {
   const navigate = useNavigate();
+  const [stockData, setStockData] = useState([]); // 1. stockData 상태 정의
 
   const handleHomeClick = () => {
     navigate("/");
@@ -23,31 +25,37 @@ const InvestHelpPage = () => {
     navigate("/group");
   };
 
-  const stockData = [
-    {
-      id: 1,
-      name: "숙명항공",
-      image: "/images/apple.png",
-      price: "$150.25",
-      limit: "+3.5%",
-    },
-    {
-      id: 2,
-      name: "숙명전자",
-      image: "/images/amazon.png",
-      price: "$3,450.00",
-      limit: "+1.2%",
-    },
-  ];
+  useEffect(() => {
+    const stockDataFetch = async () => {
+      const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
+      const url =
+        "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+
+      try {
+        const response = await axios.get(
+          `${proxyServerUrl}${url}//api/v1/stock`,
+          {
+            headers: { authorization: 1 }, // 2. 토큰 설정 (임시값으로 1 설정)
+          }
+        );
+        setStockData(response.data.result.suggestedStockList); // 3. stockData 상태 업데이트
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    stockDataFetch();
+  }, []);
 
   return (
     <PageLayout>
       <S.Header>
-        <S.TeamName>주식 추천하기</S.TeamName>
+        <S.TeamName>여행 가보자고</S.TeamName>
       </S.Header>
 
       <div style={{ overflowY: "scroll", height: "calc(100vh - 100px)" }}>
         <S.Container>
+          {/* 4. stockData를 ChoseList 컴포넌트에 전달 */}
           <InvestProduct stockData={stockData} />
         </S.Container>{" "}
       </div>

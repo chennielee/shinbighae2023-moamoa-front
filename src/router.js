@@ -4,14 +4,20 @@ import {
   HomePage,
   SignUpPage,
   GroupPage,
+  WishListPage,
+  InvestHelpPage,
+  LoginPage,
   MakeGroupPage1,
   MKPage3,
   MPage4,
-  WishListPage,
-  InvestHelpPage,
 } from "./pages";
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+
   {
     path: "/",
     element: <HomePage />,
@@ -26,7 +32,6 @@ const router = createBrowserRouter([
     path: "/group",
     element: <GroupPage />,
   },
-
   {
     path: "/makegroup1",
     element: <MakeGroupPage1 />,
@@ -47,9 +52,11 @@ const router = createBrowserRouter([
     element: <WishListPage />,
   },
   {
-    path: "/helppage",
+       path: "/helppage",
     element: <InvestHelpPage />,
   },
 ]);
+
+ 
 
 export default router;
