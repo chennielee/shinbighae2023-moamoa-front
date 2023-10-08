@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ItFrame from "./ItFrame";
 import * as S from "./MPage4.style";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -13,7 +13,6 @@ function MPage4() {
   const navigate = useNavigate();
   const handleSuccessClick = () => {
     fetchData();
-    // next page
     navigate("/group", { state: { meetingId: userId.result } });
   };
 

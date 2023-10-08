@@ -30,7 +30,7 @@ const HomePage = () => {
   useEffect(() => {
     // async를 사용하는 함수 따로 선언
     const fetchData = async () => {
-      let authorizationToken = "2";
+      let authorizationToken = "1";
       const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
       const url =
         "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
@@ -43,8 +43,8 @@ const HomePage = () => {
             headers: { authorization: authorizationToken },
           }
         );
-        setGroupData(response.data.result.meetingList);
-        // console.log(response.data.result.meetingList);
+        setGroupData(response.data.result.meetingList.slice(-3));
+        // console.log(response.data.result.meetingList.slice(-3));
         // setGroupData(response.data.groupData);
       } catch (e) {
         console.log(e);
