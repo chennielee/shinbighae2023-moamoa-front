@@ -6,9 +6,15 @@ import {
   GroupPage,
   WishListPage,
   InvestHelpPage,
+  LoginPage,
 } from "./pages";
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+
   {
     path: "/",
     element: <HomePage />,
