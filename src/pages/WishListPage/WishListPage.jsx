@@ -25,8 +25,7 @@ const WishListPage = () => {
 
   const stockData = [
     {
-      id: 1,
-      name: "숙명항공",
+      // 이미지 카
       image: "/svgs/graph.svg",
       price: "$150.25",
       limit: "3.5",
