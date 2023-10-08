@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItFrame from "./ItFrame";
 import * as S from "./MPage4.style";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -8,12 +8,14 @@ import axios from "axios";
 function MPage4() {
   // 데이터 전달 확인하기
   const { state } = useLocation();
-  console.log(state);
+
+  // response data 상태 관리
+  const [userId, setUserId] = useState("");
 
   // 모임 상세 페이지로 넘어가기
   const navigate = useNavigate();
   const handleSuccessClick = () => {
-    navigate("/group");
+    navigate("/group", { state: { meetingId: userId } });
     // API 작업
     fetchData();
   };
@@ -25,7 +27,7 @@ function MPage4() {
     const url = "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
 
     try {
-      axios.post(
+      const response = axios.post(
         `${proxyServerUrl}${url}/api/v1/meeting`,
         {
           purposeType: "",
@@ -39,6 +41,7 @@ function MPage4() {
           headers: { authorization: authorizationToken },
         }
       );
+      setUserId(response.data.result);
     } catch (e) {
       console.log(e);
     }

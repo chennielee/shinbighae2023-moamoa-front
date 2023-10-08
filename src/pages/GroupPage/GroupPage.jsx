@@ -1,37 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PageLayout } from "../../components";
 import InvestChange from "./InvestChange";
 import * as S from "./GroupPage.style";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const GroupPage = () => {
-  // // API : Get
-  // useEffect(() => {
-  //   // async를 사용하는 함수 따로 선언
-  //   const fetchData = async () => {
-  //     let authorizationToken = "1";
-  //     const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
-  //     const url =
-  //       "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+  // 데이터 전달 확인하기
+  const { state } = useLocation();
 
-  //     try {
-  //       // url 먼저 받아오기(await)
-  //       const response = await axios.get(
-  //         `${proxyServerUrl}${url}/api/v1/meeting`,
-  //         {
-  //           headers: { authorization: authorizationToken },
-  //         }
-  //       );
-  //       setGroupData(response.data.result.meetingList);
-  //       // console.log(response.data.result.meetingList);
-  //       // setGroupData(response.data.groupData);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //     // setLoading(false);
-  //   };
-  //   fetchData();
-  // }, []);
+  // 새로우 모임 관리
+  const [newGroupData, setNewGroupData] = useState(null);
+
+  // API : Get
+  useEffect(() => {
+    // async를 사용하는 함수 따로 선언
+    const fetchData = async () => {
+      let authorizationToken = "1";
+      const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
+      const url =
+        "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+
+      try {
+        // url 먼저 받아오기(await)
+        const response = await axios.get(
+          `${proxyServerUrl}${url}/api/v1/meeting`,
+          {
+            params: { meetingId: state.meetingId },
+          },
+          {
+            headers: { authorization: authorizationToken },
+          }
+        );
+        setNewGroupData(response.data.result.meetingList);
+        // console.log(response.data.result.meetingList);
+        // setGroupData(response.data.groupData);
+      } catch (e) {
+        console.log(e);
+      }
+      // setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  console.log(newGroupData);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");

@@ -1,8 +1,9 @@
 import { PageLayout } from "../../components";
 import * as S from "./HomePage.style";
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GroupList from "./GroupList";
+import axios from "axios";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,36 +24,36 @@ const HomePage = () => {
     navigate("/group");
   };
 
-  const groupData = [
-    {
-      id: 1,
-      title: "'여행 가보자고'",
-      isGroup: "모임",
-      profit: "-10%",
-      aim: "80",
-    },
-    {
-      id: 2,
-      title: "'우리의 노후자금을 위해'",
-      isGroup: "모임",
-      profit: "+5%",
-      aim: "60",
-    },
-    {
-      id: 3,
-      title: "'떨어지면 우리 우정도 끝'",
-      isGroup: "모임",
-      profit: "+20%",
-      aim: "50",
-    },
-    {
-      id: 3,
-      title: "'우리 가족 사랑해'",
-      isGroup: "모임",
-      profit: "+30%",
-      aim: "40",
-    },
-  ];
+  // 상태관리
+  const [groupData, setGoupData] = useState(null);
+
+  // API : Get
+  useEffect(() => {
+    // async를 사용하는 함수 따로 선언
+    const fetchData = async () => {
+      let authorizationToken = "2";
+      const proxyServerUrl = "https://cors-anywhere.herokuapp.com/";
+      const url =
+        "http://ec2-3-35-167-235.ap-northeast-2.compute.amazonaws.com";
+
+      try {
+        // url 먼저 받아오기(await)
+        const response = await axios.get(
+          `${proxyServerUrl}${url}/api/v1/meeting`,
+          {
+            headers: { authorization: authorizationToken },
+          }
+        );
+        setGoupData(response.data.result.meetingList);
+        // console.log(response.data.result.meetingList);
+        // setGroupData(response.data.groupData);
+      } catch (e) {
+        console.log(e);
+      }
+      // setLoading(false);
+    };
+    fetchData();
+  }, []);
 
   return (
     <PageLayout>
