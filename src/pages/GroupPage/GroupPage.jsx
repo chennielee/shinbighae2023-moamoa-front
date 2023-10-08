@@ -65,7 +65,7 @@ const GroupPage = () => {
   };
 
   const handleGroupPageClick = () => {
-    navigate("/group");
+    navigate("/home");
   };
 
   const handleCheckPreference = () => {

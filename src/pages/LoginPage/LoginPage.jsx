@@ -56,7 +56,7 @@ const LoginPage = () => {
 
       if (responseData.isSuccess) {
         alert("가입되었습니다.");
-        navigate("/wish");
+        navigate("/home");
       } else {
         alert("계정 생성 실패. 다시 시도해주세요.");
       }

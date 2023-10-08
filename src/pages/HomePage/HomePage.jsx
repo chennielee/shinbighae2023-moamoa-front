@@ -9,7 +9,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   const handleMakeGroupClick = () => {

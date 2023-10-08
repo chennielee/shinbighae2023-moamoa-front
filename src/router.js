@@ -14,12 +14,12 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <LoginPage />,
   },
 
   {
-    path: "/",
+    path: "/home",
     element: <HomePage />,
   },
 
@@ -52,11 +52,9 @@ const router = createBrowserRouter([
     element: <WishListPage />,
   },
   {
-       path: "/helppage",
+    path: "/helppage",
     element: <InvestHelpPage />,
   },
 ]);
-
- 
 
 export default router;

@@ -113,16 +113,20 @@ export const Container = styled.div`
 `;
 
 export const Prefer = styled.div`
-  border: 1px solid black;
-  position: fixed;
-  width: %;
-  /* margin: 0 auto; */
-  height: auto;
-  bottom: 10%;
+  position: sticky;
   z-index: 3;
-  margin-left: 32%;
-  height: 6%;
-  padding-top: 3%;
+  bottom: 12%;
+  font-size: larger;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  height: 5%;
+  background-color: #1f65ff;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px 0px rgba(155, 159, 176, 1);
 `;
 
 export const Options = styled.div`

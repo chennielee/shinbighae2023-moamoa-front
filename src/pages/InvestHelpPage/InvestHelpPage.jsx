@@ -10,7 +10,7 @@ const InvestHelpPage = () => {
   const [stockData, setStockData] = useState([]); // 1. stockData 상태 정의
 
   const handleHomeClick = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   const handleMakeGroupClick = () => {
