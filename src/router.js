@@ -7,6 +7,9 @@ import {
   WishListPage,
   InvestHelpPage,
   LoginPage,
+  MakeGroupPage1,
+  MKPage3,
+  MPage4,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -29,16 +32,31 @@ const router = createBrowserRouter([
     path: "/group",
     element: <GroupPage />,
   },
-
   {
-    path: "/wish",
-    element: <WishListPage />,
+    path: "/makegroup1",
+    element: <MakeGroupPage1 />,
   },
 
   {
-    path: "/helppage",
+    path: "/makegroup3",
+    element: <MKPage3 />,
+  },
+
+  {
+    path: "/makegroup4",
+    element: <MPage4 />,
+  },
+
+  {
+    path: "/wishpage",
+    element: <WishListPage />,
+  },
+  {
+       path: "/helppage",
     element: <InvestHelpPage />,
   },
 ]);
+
+ 
 
 export default router;
